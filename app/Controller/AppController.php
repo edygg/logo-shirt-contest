@@ -48,6 +48,6 @@ class AppController extends Controller {
 
 	    public function beforeFilter() {
 	    	//Permite ver index y view de todas las páginas
-	        $this->Auth->allow('login', 'index', 'root');
+	        $this->Auth->allow('login');
 	    }
 }
