@@ -27,8 +27,11 @@ class FilesController extends AppController {
  * @return void
  */
 	public function listFiles() {
-		$this->File->recursive = 0;
-		$this->set('files', $this->Paginator->paginate());
+		$files = $this->File->find('all', array(
+      'conditions' => array('user_id' => AuthComponent::user('id')),
+    ));
+    pr($files);
+		$this->set('files', $files);
 	}
 
 /**
@@ -38,20 +41,27 @@ class FilesController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
-      pr($this->data);
-      $currentOriginFile = fread(fopen($this->data['File']['files'][0]['tmp_name'], 'r'), $this->data['File']['files'][0]['size']);
+      $directories = "files/users/". AuthComponent::user('username') . "/";
+      mkdir($directories, 0777, true);
       
-      $currentDestFile = fopen('~'.DS. $this->data['File']['files'][0]['name'], 'w');
-      fwrite($currentDestFile, '1');
-  
-      //return $this->redirect(array('action' => 'listFiles'));
-      //$this->File->create();
-      /*if ($this->File->save($this->request->data)) {
-				$this->Session->setFlash(__('The file has been saved.'));
-				return $this->redirect(array('action' => 'listFiles'));
-			} else {
-				$this->Session->setFlash(__('The file could not be saved. Please, try again.'));
-			}*/
+      foreach ($this->data['File']['files'] as $file) {
+        $target_path = $directories . $file['name'];
+        if (move_uploaded_file($file['tmp_name'], $target_path)) {
+            $this->File->create();
+            if ($this->File->save(array(
+              'user_id' => AuthComponent::user('id'),
+              'path' => $target_path,
+            ))) {
+               $this->Session->setFlash('Tus archivos se han guardado'); 
+            } else {
+              $this->Session->setFlash('Ha ocurrido un problema. Vuelve a intentar');
+            }   
+        } else {
+            $this->Session->setFlash('Ha ocurrido un problema. Vuelve a intentar');
+        }
+      }
+      
+      $this->redirect(array('action' => 'listFiles'));
 		}
 	}
   

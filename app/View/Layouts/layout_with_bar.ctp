@@ -19,6 +19,9 @@
 		<ul class="nav navbar-nav">
 			<li><?php echo $this->Html->link('Inicio', '/'); ?></li>
 			<li><?php echo $this->Html->link('Bases del concurso', array('controller' => 'home', 'action' => 'contestRules')); ?></li>
+      <?php if (AuthComponent::user('id')): ?>
+      <li><?php echo $this->Html->link('Sube tus archivos', array('controller' => 'files', 'action' => 'listFiles')); ?></li>
+      <?php endif; ?>
 		</ul>
 		<div class="navbar-right">
 			<?php if (!AuthComponent::user('id')) : ?>
@@ -32,6 +35,7 @@
 	</nav>
 
 	<main class="col-sm-9 col-sm-offset-1">
+    <?php echo $this->Session->flash(); ?>
 		<?php echo $this->fetch('content'); ?>
 	</main>
 
