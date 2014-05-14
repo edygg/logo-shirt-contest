@@ -35,7 +35,8 @@
 	</nav>
 
 	<main class="col-sm-9 col-sm-offset-1">
-    <?php echo $this->Session->flash(); ?>
+    <?php echo $this->Session->flash('flash', array('element' => 'failure')); ?>
+    <?php echo $this->Session->flash('flash', array('element' => 'success')); ?>
 		<?php echo $this->fetch('content'); ?>
 	</main>
 

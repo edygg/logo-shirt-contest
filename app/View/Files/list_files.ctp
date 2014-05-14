@@ -16,14 +16,16 @@
     <p>No hay archivos que mostrar.</p>
   </div>
 <?php else: ?>
+<div class="col-sm-8">
   <table class="table table-hover">
     <tbody>
       <?php foreach($files as $file): ?>
       <tr>
         <td><?php echo basename($file['File']['path']); ?></td>
-        <td><?php echo $this->Html->link('Eliminar', array('action' => 'delete', 'id' => $file['File']['id']), array('class' => 'btn btn-sm btn-danger')); ?></td>
+        <td><?php echo $this->Html->link('Eliminar', array('action' => 'delete', $file['File']['id']), array('class' => 'btn btn-sm btn-danger')); ?></td>
       </tr>
       <?php endforeach; ?>
     </tbody>
   </table>
+</div>
 <?php endif; ?>

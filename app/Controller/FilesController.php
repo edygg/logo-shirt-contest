@@ -30,7 +30,6 @@ class FilesController extends AppController {
 		$files = $this->File->find('all', array(
       'conditions' => array('user_id' => AuthComponent::user('id')),
     ));
-    pr($files);
 		$this->set('files', $files);
 	}
 
@@ -52,12 +51,12 @@ class FilesController extends AppController {
               'user_id' => AuthComponent::user('id'),
               'path' => $target_path,
             ))) {
-               $this->Session->setFlash('Tus archivos se han guardado'); 
+               $this->Session->setFlash('Tus archivos se han guardado', 'success'); 
             } else {
-              $this->Session->setFlash('Ha ocurrido un problema. Vuelve a intentar');
+              $this->Session->setFlash('Ha ocurrido un problema. Vuelve a intentar', 'failure');
             }   
         } else {
-            $this->Session->setFlash('Ha ocurrido un problema. Vuelve a intentar');
+            $this->Session->setFlash('Ha ocurrido un problema. Vuelve a intentar', 'failure');
         }
       }
       
@@ -77,12 +76,18 @@ class FilesController extends AppController {
 		if (!$this->File->exists()) {
 			throw new NotFoundException(__('Invalid file'));
 		}
-		$this->request->onlyAllow('post', 'delete');
+		//$this->request->onlyAllow('post', 'delete');
+    $file = $this->File->find('first', array('conditions' => array('File.id' => $id)));
 		if ($this->File->delete()) {
-			$this->Session->setFlash(__('The file has been deleted.'));
+      if (unlink($file['File']['path'])) {
+        $this->Session->setFlash(__('El archivo ha sido elimminado.'), 'success');
+      } else {
+        $this->Session->setFlash(__('Ha ocurrido un error.'), 'failure');
+      }
+			
 		} else {
 			$this->Session->setFlash(__('The file could not be deleted. Please, try again.'));
 		}
-		return $this->redirect(array('action' => 'index'));
+		return $this->redirect(array('action' => 'listFiles'));
 	}
 }
