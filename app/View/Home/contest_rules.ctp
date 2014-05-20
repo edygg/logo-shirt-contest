@@ -69,12 +69,17 @@
 	<div id="requisitos">
 		<h2>Requisitos</h2>
 		<ol>
-			<li>El diseño del logo debe apegarse a las restricciones institucionales que establece la universidad (véanse, en la sección de anexos al final del documento). Se debe respetar la forma diamantada, la tipografía y los colores oficiales de azul, rojo, negro y blanco.</li>
+			<li>El diseño del logo debe apegarse a las restricciones institucionales que establece la universidad (véanse en la sección de <a href="#descargas">descargas</a>). Se debe respetar la forma diamantada, la tipografía y los colores oficiales de azul, rojo, negro y blanco.</li>
 			<li>Los diseños deben ser originales y no podrán haber sido presentados en otros concursos ni usados con anterioridad. Debe crearse exclusivamente para la carrera de Ingeniería en Sistemas Computacionales de UNITEC.</li>
-			<li>Cada participante debe subir una propuesta de logo y una propuesta de la camisa oficial.</li>
-			<li>Las propuestas deberán ser presentadas únicamente en las fechas establecidas anteriormente.</li>
-			<li>Al momento de subir las propuestas, asegúrese de que cuenten con una resolución óptica aceptable (preferiblemente vectorizada).</li>
-			<li>La camisa oficial debe de ser estilo “Polo”.</li>
+			<li>Cada participante debe subir 5 archivos:
+        <ul>
+          <li>Propuesta de logo en formato JPG y formato vectorial usando Adobe Illustrator</li>
+          <li>Propuesta de la camisa oficial en formato JPG y formato vectorial usando Adobe Illustrator</li>
+          <li>Un archivo en formato PPT donde expliquen brevemente en qué consiste su propuesta, las motivaciones y argumentos por los que creen que deben ganar el premio.</li>
+        </ul>
+      </li>
+      <li>La camisa oficial debe de ser estilo “Polo”.</li>
+      <li>Las propuestas deberán ser presentadas únicamente en las fechas establecidas anteriormente.</li>
 		</ol>
 	</div>
 	<hr>
@@ -82,13 +87,12 @@
 		<h2>Jurado</h2>
 		<p>El jurado estará integrado por  las siguientes personas:</p>
 		<ul>
-			<li>Por Confirmar, Director del Departamento de Mercadeo Unitec.</li>
-			<li>Por Confirmar, Jefe académico de la carrera de Comunicación y Publicidad.</li>
-			<li>Por Confirmar, Jefe académico de la carrera de Diseño Gráfico.</li>
-			<li><em>Dr. Carlos Arias</em>, Docente Investigador de la carrera de Ing. en Sistemas Computacionales</li>
-			<li><em>Ing. Nancy Urbina</em>, Jefe Académico de la carrera de Ing. en Sistemas Computacionales</li>
-			<li><em>Ing. Diana Cárcamo</em>, Decana de la Facultad de Ingeniería y Arquitectura</li>
-			<li><em>Nombre</em>, Estudiante de Ing. en Sistemas Computacionales</li>
+      <li>Ramón Zúniga, Director del Departamento de Mercadeo Unitec.</li>
+      <li>Fernanda Canchón, Jefe académico de la carrera de Comunicación y Publicidad.</li>
+      <li>Carlos Arias, Docente Investigador de la carrera de Ing. en Sistemas Computacionales</li>
+      <li>Nancy Urbina, Jefe Académico de la carrera de Ing. en Sistemas Computacionales</li>
+      <li>Diana Cárcamo, Decana de la Facultad de Ingeniería y Arquitectura</li>
+      <li>Josué Noel Rojas, Estudiante de Ing. en Sistemas Computacionales</li>
 		</ul>
 	</div>
 	<hr>

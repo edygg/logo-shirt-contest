@@ -8,6 +8,7 @@
 				'bootstrap.min',
 				'font-awesome.min',
 				'contest_rules',
+        'main',
 			));
 	?>
 </head>
